@@ -1,37 +1,8 @@
 # VulTeller: Learning to Locate and Describe Vulnerabilities
-This repository includes our experimental data and source code for our approach that aims at vulnerability localization and description generation.
+This repository includes the experimental data for our work published at ASE 2023. Automatically discovering software vulnerabilities is a long-standing pursuit for software developers and security analysts. Since detection tools usually provide limited information for vulnerability inspection, recent work turns the attention to identify fine-grained vulnerabilities, i.e., vulnerable statements. However, existing work for vulnerability localization struggles to capture long-range and integral dependency information due to the bottleneck of Graph Neural Networks (GNNs). Moreover, little research has been done to help developers understand detected vulnerabilities, leaving vulnerability diagnosis a challenging task. In this paper, we propose VulTeller, a deep learning-based approach that can automatically locate vulnerable statements in a function and more importantly, can describe the vulnerability. Our approach focuses on extracting precise control and data dependencies in the code, achieved through modeling control flow paths and employing taint analysis. We design a novel neural model that encodes the control flows and taint flows which reside in the control flow paths, and decodes them via node classification and an attentional decoder for the two tasks respectively. We conduct extensive experiments with real-world vulnerabilities to evaluate the proposed approach. The evaluation results, including quantitative measurement and human evaluation, demonstrate that our approach is highly effective and outperforms state-of-the-art approaches. Our work for the first time formulates the problem of vulnerability description generation, and makes one step further towards automated vulnerability diagnosis.
 
-## Requirements
-### Hardware Environment
-* Ubuntu 18.04 server
-* Intel(R) Xeon(R) Silver 4214 CPU @ 2.20GHz
-* 256GB RAM
-* GTX3090 GPU.
-### Tools
-* GCC 7.5.0
-* Joern 1.1.1117
-### Python Packages (Python 3.8.13)
-* ConfigArgParse==1.5.3
-* libclang==14.0.6
-* lxml==4.9.2
-* networkx==2.8.8
-* nltk==3.7
-* numpy==1.23.3
-* nvidia-cublas-cu11==11.10.3.66
-* nvidia-cuda-nvrtc-cu11==11.7.99
-* nvidia-cuda-runtime-cu11==11.7.99
-* nvidia-cudnn-cu11==8.5.0.96
-* pandas==1.5.3
-* scikit-learn==1.1.2
-* torch==1.9.1+cu111
-* torchtext==0.5.0
-* tqdm==4.64.1
-## Instructions
-1. Unpack the data file `data/data.rar` to get the training, validation and test sets.
-2. `cd VulTeller`
-3. `python python joern_parse.py` 
-4. `python simplify_cfg.py`
-5. `python train.py -g 0 -m loc` for task 1 //This step could be skipped if we have the checkpoint.
-6. `python infer.py -g 0 -m loc` 
-7. `python train.py -g 0 -m desc` for task 2 //This step could be skipped if we have the checkpoint.
-8. `python infer.py -g 0 -m desc` 
+Due to the involvement and support of Desay SV in this project, and considering its utilization for patent-related purposes, we are unable to release the tool as open-source. We are exploring possibilities to contribute to the community in other ways that do not conflict with these obligations, potentially through sharing non-core aspects of the project that don't infringe on any intellectual property rights. 
+
+## Dataset
+The zippped file `data/data.rar` contains split datasets of `train.csv`, `valid.csv` and `test.csv`. Each of them  is formatted as `id, function, location, description`, and is constructed based on [BigVul](https://github.com/ZeoVan/MSR_20_Code_vulnerability_CSV_Dataset).
+
