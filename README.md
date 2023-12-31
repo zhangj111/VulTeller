@@ -4,5 +4,5 @@ This repository includes the experimental data for our work published at ASE 202
 Due to the involvement and support of Desay SV in this project, and considering its utilization for patent-related purposes, we are unable to release the tool as open-source. We are exploring possibilities to contribute to the community in other ways that do not conflict with these obligations, potentially through sharing non-core aspects of the project that don't infringe on any intellectual property rights. 
 
 ## Dataset
-The zippped file `data/data.rar` contains split datasets of `train.csv`, `valid.csv` and `test.csv`. Each of them  is formatted as `id, function, location, description`, and is constructed based on [BigVul](https://github.com/ZeoVan/MSR_20_Code_vulnerability_CSV_Dataset).
+The zipped file `data/data.rar` contains split datasets of `train.csv`, `valid.csv` and `test.csv`. Each of them  is formatted as `id, function, location, description`, and is constructed based on [BigVul](https://github.com/ZeoVan/MSR_20_Code_vulnerability_CSV_Dataset).
 
